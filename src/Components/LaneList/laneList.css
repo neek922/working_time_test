@@ -1,0 +1,21 @@
+.form_content {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.row_input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.column_add {
+    color: #304386;
+}
+
+.column_add:hover {
+    color: #697ec7;
+    cursor: pointer;
+}
