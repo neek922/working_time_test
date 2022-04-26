@@ -3,10 +3,15 @@ import './content.css';
 import LaneList from "./LaneList/LaneList";
 import { useSelector } from "react-redux";
 import validationForm from "../validation/validationForm";
+import onMount from "./function/onMaunt";
 
 const Content = () => {
 
-    const stateWork = useSelector((currentState) => currentState.workTime.data);
+    React.useEffect(() => {
+		onMount();
+	}, []);
+
+    const stateWork = useSelector((currentState) => currentState.workTime.data || []);
     const flag = useSelector((currentState) => currentState.flags.validationLine);
 
     return (
@@ -15,7 +20,7 @@ const Content = () => {
                 <span>✕</span>
                 Редагування робочого часу
             </div>
-            {stateWork.map((item, index)=>
+            {stateWork.map((item, index) =>
                 <LaneList index={index} key={index} item={item.hours} />
             )}
             <div className="form_submit">

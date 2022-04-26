@@ -1,7 +1,7 @@
 import Store from '../Store';
 import React from 'react';
 
-const handleAddLine = () =>  {
+const handleAddLine = (el = "") =>  {
     const currentState = Store().getState().workTime;
     const lineDays = currentState.data
     const template = {};
@@ -15,7 +15,6 @@ const handleAddLine = () =>  {
         })
     }
 
-
     Store().dispatch({
         type: 'workTime',
         payload: () => {
@@ -24,49 +23,49 @@ const handleAddLine = () =>  {
                     days: [{
                         label: 'нд',
                         number: 0,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(0)),
                         name: 'checkedA',
-                        disabled: (template[0]) ? template[0] : false,
+                        disabled: !!(template[0]),
                     }, {
                         label: 'сб',
                         number: 1,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(1)),
                         name: 'checkedB',
-                        disabled: (template[1]) ? template[1] : false,
+                        disabled: !!(template[1]),
                     }, {
                         label: 'птн',
                         number: 2,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(2)),
                         name: 'checkedC',
-                        disabled: (template[2]) ? template[2] : false,
+                        disabled: !!(template[2]),
                     }, {
                         label: 'чт',
                         number: 3,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(3)),
                         name: 'checkedD',
-                        disabled: (template[3]) ? template[3] : false,
+                        disabled: !!(template[3]),
                     }, {
                         label: 'ср',
                         number: 4,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(4)),
                         name: 'checkedE',
-                        disabled: (template[4]) ? template[4] : false,
+                        disabled: !!(template[4]),
                     }, {
                         label: 'вт',
                         number: 5,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(5)),
                         name: 'checkedF',
-                        disabled: (template[5]) ? template[5] : false,
+                        disabled: !!(template[5]),
                     }, {
                         label: 'пн',
                         number: 6,
-                        checked: false,
+                        checked: !!((el) && el.days.includes(6)),
                         name: 'checkedG',
-                        disabled: (template[6]) ? template[6] : false,
+                        disabled: !!(template[6]),
                     }],
                     hours: {
-                        time_from: '',
-                        time_to: '',
+                        time_from: ((el) && (el.hours.time_from)) ? el.hours.time_from : '',
+                        time_to: ((el) && (el.hours.time_to)) ? el.hours.time_to : '',
                     },
                     time_toFieldErrMessage: '',
                     time_toFieldError: false,
