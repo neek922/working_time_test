@@ -1,4 +1,4 @@
-import InfList from "./Information.js";
+import InfList from "../models/Information.js";
 
 class InfoController {
     async create(req, res) {

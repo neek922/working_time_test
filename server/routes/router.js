@@ -1,5 +1,5 @@
 import Router from 'express'
-import InfoController from "./InfoController.js";
+import InfoController from "../controllers/InfoController.js";
 
 const router = new Router()
 
